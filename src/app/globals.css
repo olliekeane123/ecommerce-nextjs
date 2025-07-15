@@ -1,8 +1,48 @@
 @import "tailwindcss";
-@plugin "daisyui"
+
+@plugin "daisyui";
+
 @plugin "daisyui/theme" {
     name: "light";
-    default: true;
+    default: true; /* set as default */
+    prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
+    color-scheme: light; /* color of browser-provided UI */
+
+    --color-primary: #f4aa3a;
+    --color-secondary: #f4f4a1;
+    --color-accent: #1be885;
+    --color-neutral: #272136;
+    --color-info: #778ad4;
+    --color-success: #23b893;
+    --color-warning: #f79926;
+    --color-error: #ea535a;
+    --color-base-100: #e3e6e6;
+}
+
+
+/* daisyui: {
+    themes: [
+        {
+            lightTheme: {
+                primary: #f4aa3a,
+                secondary: #f4f4a1,
+                accent: #1be885,
+                neutral: #272136,
+                "base-100": #ffffff,
+                info: #778ad4,
+                success: #23b893,
+                warning: #f79926,
+                error: #ea535a,
+                body: {
+                    "background-color": "#e3e6e6", // This way we can add a dark theme with a different background color
+                }
+
+            }
+        }
+    ]
+} */
+
+/* @theme {
     --color-primary: #f4aa3a;
     --color-secondary: #f4f4a1;
     --color-accent: #1be885;
@@ -14,3 +54,16 @@
     --color-error: #ea535a;
     --color-body-background: #e3e6e6;
 }
+
+:root {
+    --color-primary: #f4aa3a;
+    --color-secondary: #f4f4a1;
+    --color-accent: #1be885;
+    --color-neutral: #272136;
+    --color-base-100: #FFFFFF;
+    --color-info: #778ad4;
+    --color-success: #23b893;
+    --color-warning: #f79926;
+    --color-error: #ea535a;
+    --color-body-background: #e3e6e6;
+} */
