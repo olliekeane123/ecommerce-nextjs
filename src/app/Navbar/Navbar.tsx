@@ -19,7 +19,7 @@ export default async function Navbar() {
     const cart = await getCart()
 
     return (
-        <div className="bg-white">
+        <div className="bg-base-200">
             <div className="m-auto navbar max-w-7xl flex-col gap-2 sm:flex-row">
                 <div className="flex-1">
                     <Link href="/" className="btn text-xl btn-ghost">
@@ -38,7 +38,7 @@ export default async function Navbar() {
                             <input
                                 name="searchQuery"
                                 placeholder="Search"
-                                className="input-bordered input w-full min-w-[100px]"
+                                className="input-bordered input w-full min-w-[100px] bg-base-200 border-base-100"
                             />
                         </div>
                     </form>
