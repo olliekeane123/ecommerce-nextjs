@@ -1,9 +1,19 @@
 import PaginationBar from "@/components/PaginationBar"
 import ProductCard from "@/components/ProductCard"
 import { prisma } from "@/lib/db/prisma"
+import { Metadata } from "next"
 
 type SearchPageProps = {
     searchParams: Promise<{ query: string; page: string }>
+}
+
+export async function generateMetadata({
+    searchParams,
+}: SearchPageProps): Promise<Metadata> {
+    const { query } = await searchParams
+    return {
+        title: `Search ${query} - Ecommerce`,
+    }
 }
 
 export default async function SearchPage({ searchParams }: SearchPageProps) {
