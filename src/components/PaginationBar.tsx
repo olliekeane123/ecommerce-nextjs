@@ -4,12 +4,16 @@ import { JSX } from "react"
 type PaginationBarProps = {
     currentPage: number
     totalPages: number
+    searchQuery?: string | null
 }
 
 export default function PaginationBar({
     currentPage,
     totalPages,
+    searchQuery = null,
 }: PaginationBarProps) {
+    const searchQueryUrl = searchQuery ? "/search?query=" + searchQuery : ""
+
     const maxPage = Math.min(totalPages, Math.max(currentPage + 4, 10))
     const minPage = Math.max(1, Math.min(currentPage - 5, maxPage - 9))
 
@@ -18,7 +22,11 @@ export default function PaginationBar({
     for (let page = minPage; page <= maxPage; page++) {
         numberedPageItems.push(
             <Link
-                href={"?page=" + page}
+                href={
+                    searchQuery
+                        ? searchQueryUrl + "&page=" + page
+                        : "?page=" + page
+                }
                 key={page}
                 className={`btn join-item ${currentPage === page ? "pointer-events-none btn-active" : ""}`}
             >
@@ -33,7 +41,11 @@ export default function PaginationBar({
             <div className="join block sm:hidden">
                 {currentPage > 1 && (
                     <Link
-                        href={"?page=" + (currentPage - 1)}
+                        href={
+                            searchQuery
+                                ? searchQueryUrl + "&page=" + (currentPage - 1)
+                                : "?page=" + (currentPage - 1)
+                        }
                         className="btn join-item"
                     >
                         «
@@ -44,7 +56,11 @@ export default function PaginationBar({
                 </button>
                 {currentPage < totalPages && (
                     <Link
-                        href={"?page=" + (currentPage + 1)}
+                        href={
+                            searchQuery
+                                ? searchQueryUrl + "&page=" + (currentPage + 1)
+                                : "?page=" + (currentPage + 1)
+                        }
                         className="btn join-item"
                     >
                         »

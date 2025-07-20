@@ -5,12 +5,11 @@ import Link from "next/link"
 import PaginationBar from "@/components/PaginationBar"
 
 type HomeProps = {
-    searchParams: { page: string }
+    searchParams: Promise<{ page: string }>
 }
 
-export default async function Home({
-    searchParams: { page = "1" },
-}: HomeProps) {
+export default async function Home({ searchParams }: HomeProps) {
+    const { page = "1" } = await searchParams
     const currentPage = parseInt(page)
 
     const pageSize = 6

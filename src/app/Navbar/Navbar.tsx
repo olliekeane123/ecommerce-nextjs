@@ -14,7 +14,7 @@ async function searchProduct(formData: FormData) {
     const searchQuery = formData.get("searchQuery")?.toString()
 
     if (searchQuery) {
-        redirect("/search?query=" + searchQuery)
+        redirect("/search?query=" + searchQuery + "&page=1")
     }
 }
 
@@ -42,12 +42,12 @@ export default async function Navbar() {
                             <input
                                 name="searchQuery"
                                 placeholder="Search"
-                                className="input-bordered input w-full min-w-[100px] bg-base-200 border-base-100"
+                                className="input-bordered input w-full min-w-[100px] border-base-100 bg-base-200"
                             />
                         </div>
                     </form>
                     <ShoppingCartButton cart={cart} />
-                    <UserMenuButton session={session}/>
+                    <UserMenuButton session={session} />
                 </div>
             </div>
         </div>
