@@ -1,4 +1,4 @@
-import { Product } from "@/generated/prisma"
+import { Product } from "@/generated/prisma/client"
 import Link from "next/link"
 import PriceTag from "./PriceTag"
 import Image from "next/image"
