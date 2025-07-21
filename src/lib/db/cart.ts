@@ -1,6 +1,6 @@
 import { cookies } from "next/headers"
 import { prisma } from "./prisma"
-import { Cart, CartItem, Prisma } from "@/generated/prisma"
+import { Cart, CartItem, Prisma } from "@/generated/prisma/client"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/app/api/auth/[...nextauth]/route"
 

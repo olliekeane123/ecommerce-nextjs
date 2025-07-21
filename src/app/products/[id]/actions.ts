@@ -1,5 +1,6 @@
 "use server"
 
+import { CartItem } from "@/generated/prisma/client"
 import { createCart, getCart } from "@/lib/db/cart"
 import { prisma } from "@/lib/db/prisma"
 import { revalidatePath } from "next/cache"
@@ -8,7 +9,7 @@ export async function incrementProductQuantity(productId: string) {
     const cart = (await getCart()) ?? (await createCart())
 
     const articleInCart = cart.items.find(
-        (item) => item.productId === productId
+        (item: CartItem) => item.productId === productId
     )
 
     if (articleInCart) {
